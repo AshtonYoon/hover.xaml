@@ -235,5 +235,43 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="670 10 10 10" Content="Push" RenderTransformOrigin="0.5 0.5">
+            <Button.RenderTransform>
+                <ScaleTransform x:Name="PopTransform" ScaleX="1" ScaleY="1"  />
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PopTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.2" Duration="0:0:0.15" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="PopTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.2" Duration="0:0:0.15" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PopTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetName="PopTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
     </Grid>
 </Window>
