@@ -24,5 +24,11 @@ namespace hover.xaml
         {
             InitializeComponent();
         }
+
+        private void PulseStoryboardCompleted(object sender, EventArgs e)
+        {
+            PulseXAnimation.From = 1.1;
+            PulseYAnimation.From = 1.1;
+        }
     }
 }
