@@ -83,7 +83,7 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
-        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="230 10 10 10" Content="Pulse" RenderTransformOrigin="0.5 0.5">
+        <Button Name="PulseButton" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="230 10 10 10" Content="Pulse" RenderTransformOrigin="0.5 0.5">
             <Button.RenderTransform>
                 <ScaleTransform x:Name="PulseTransform" ScaleX="1" ScaleY="1"  />
             </Button.RenderTransform>
@@ -105,9 +105,9 @@
             <Button.Triggers>
                 <EventTrigger RoutedEvent="Button.MouseEnter">
                     <BeginStoryboard>
-                        <Storyboard Completed="PulseStoryboardCompleted">
-                            <DoubleAnimation Name="PulseXAnimation" Storyboard.TargetName="PulseTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" From="1.0" To="0.9" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
-                            <DoubleAnimation Name="PulseYAnimation" Storyboard.TargetName="PulseTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" From="1.0" To="0.9" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                        <Storyboard Name="PulseStoryBoard" Completed="PulseStoryboardCompleted">
+                            <DoubleAnimation Name="PulseXAnimation" Storyboard.TargetName="PulseTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" From="1.0" To="0.9" Duration="0:0:0.3" AutoReverse="True"/>
+                            <DoubleAnimation Name="PulseYAnimation" Storyboard.TargetName="PulseTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" From="1.0" To="0.9" Duration="0:0:0.3" AutoReverse="True"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
@@ -116,6 +116,120 @@
                         <Storyboard>
                             <DoubleAnimation Storyboard.TargetName="PulseTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.3"/>
                             <DoubleAnimation Storyboard.TargetName="PulseTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="340 10 10 10" Content="Pulse Grow" RenderTransformOrigin="0.5 0.5">
+            <Button.RenderTransform>
+                <ScaleTransform x:Name="PulseGrowTransform" ScaleX="1" ScaleY="1"  />
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PulseGrowTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.1" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                            <DoubleAnimation Storyboard.TargetName="PulseGrowTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.1" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PulseGrowTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetName="PulseGrowTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="450 10 10 10" Content="Pulse Shrink" RenderTransformOrigin="0.5 0.5">
+            <Button.RenderTransform>
+                <ScaleTransform x:Name="PulseShrinkTransform" ScaleX="1" ScaleY="1"  />
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PulseShrinkTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="0.9" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                            <DoubleAnimation Storyboard.TargetName="PulseShrinkTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="0.9" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PulseShrinkTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetName="PulseShrinkTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="560 10 10 10" Content="Push" RenderTransformOrigin="0.5 0.5">
+            <Button.RenderTransform>
+                <ScaleTransform x:Name="PushTransform" ScaleX="1" ScaleY="1"  />
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PushTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="0.8" Duration="0:0:0.15" AutoReverse="True"/>
+                            <DoubleAnimation Storyboard.TargetName="PushTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="0.8" Duration="0:0:0.15" AutoReverse="True"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="PushTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetName="PushTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.3"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
