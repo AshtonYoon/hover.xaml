@@ -1,0 +1,14 @@
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\bin\Debug\hover.xaml.exe.config
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\bin\Debug\hover.xaml.exe
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\bin\Debug\hover.xaml.pdb
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml.csprojResolveAssemblyReference.cache
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\MainWindow.g.cs
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\App.g.cs
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml_MarkupCompile.cache
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml_MarkupCompile.lref
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\MainWindow.baml
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml.g.resources
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml.Properties.Resources.resources
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml.csproj.GenerateResource.Cache
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml.exe
+c:\users\y\documents\visual studio 2015\Projects\hover.xaml\hover.xaml\obj\Debug\hover.xaml.pdb
