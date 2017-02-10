@@ -235,7 +235,7 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
-        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="670 10 10 10" Content="Push" RenderTransformOrigin="0.5 0.5">
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="670 10 10 10" Content="Pop" RenderTransformOrigin="0.5 0.5">
             <Button.RenderTransform>
                 <ScaleTransform x:Name="PopTransform" ScaleX="1" ScaleY="1"  />
             </Button.RenderTransform>
@@ -396,6 +396,49 @@
                     <BeginStoryboard>
                         <Storyboard>
                             <DoubleAnimation Storyboard.TargetName="rotateTransform" To="0" Duration="0:0:0.3" Storyboard.TargetProperty="(RotateTransform.Angle)"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="1110 10 10 10" Content="Grow Rotate" RenderTransformOrigin="0.5 0.5">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform x:Name="growRotateScaleTransform" ScaleX="1" ScaleY="1"/>
+                    <RotateTransform x:Name="growRotateRotateTransform" Angle="0"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="growRotateScaleTransform" To="1.1" Duration="0:0:0.3" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"/>
+                            <DoubleAnimation Storyboard.TargetName="growRotateScaleTransform" To="1.1" Duration="0:0:0.3" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"/>
+                            <DoubleAnimation Storyboard.TargetName="growRotateRotateTransform" To="4" Duration="0:0:0.3" Storyboard.TargetProperty="(RotateTransform.Angle)"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="growRotateScaleTransform" To="1" Duration="0:0:0.3" Storyboard.TargetProperty="(ScaleTransform.ScaleX)"/>
+                            <DoubleAnimation Storyboard.TargetName="growRotateScaleTransform" To="1" Duration="0:0:0.3" Storyboard.TargetProperty="(ScaleTransform.ScaleY)"/>
+                            <DoubleAnimation Storyboard.TargetName="growRotateRotateTransform" To="0" Duration="0:0:0.3" Storyboard.TargetProperty="(RotateTransform.Angle)"/>
                         </Storyboard>
                     </BeginStoryboard>
                 </EventTrigger>
