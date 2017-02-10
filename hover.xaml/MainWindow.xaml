@@ -273,5 +273,73 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="780 10 10 10" Content="Bounce In" RenderTransformOrigin="0.5 0.5">
+            <Button.RenderTransform>
+                <ScaleTransform x:Name="BounceInTransform" ScaleX="1" ScaleY="1"  />
+            </Button.RenderTransform>
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="BounceInTransform" From="1.0" To="1.1" Duration="0:0:0.6" Storyboard.TargetProperty="(ScaleTransform.ScaleX)">
+                                <DoubleAnimation.EasingFunction>
+                                    <BounceEase Bounces="2" EasingMode="EaseOut" Bounciness="2" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                            <DoubleAnimation Storyboard.TargetName="BounceInTransform" From="1.0" To="1.1" Duration="0:0:0.6" Storyboard.TargetProperty="(ScaleTransform.ScaleY)">
+                                <DoubleAnimation.EasingFunction>
+                                    <BounceEase Bounces="2" EasingMode="EaseOut" Bounciness="2" />
+                                </DoubleAnimation.EasingFunction>
+                            </DoubleAnimation>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetName="BounceInTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleX)" To="1.0" Duration="0:0:0.3"/>
+                            <DoubleAnimation Storyboard.TargetName="BounceInTransform" Storyboard.TargetProperty="(ScaleTransform.ScaleY)" To="1.0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
+        <Rectangle Name="myRectangle" Width="200" Height="30" Fill="Blue">
+            <Rectangle.Triggers>
+                <EventTrigger RoutedEvent="Rectangle.MouseDown">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <Storyboard x:Name="myStoryboard">
+                                <DoubleAnimation From="200" To="266" Duration="00:00:00.6" Storyboard.TargetName="myRectangle" Storyboard.TargetProperty="Width">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BounceEase Bounces="2" EasingMode="EaseOut" Bounciness="2" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                                <DoubleAnimation From="30" To="40" Duration="00:00:00.6" Storyboard.TargetName="myRectangle" Storyboard.TargetProperty="Height">
+                                    <DoubleAnimation.EasingFunction>
+                                        <BounceEase Bounces="2" EasingMode="EaseOut" Bounciness="2" />
+                                    </DoubleAnimation.EasingFunction>
+                                </DoubleAnimation>
+                            </Storyboard>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Rectangle.Triggers>
+        </Rectangle>
     </Grid>
 </Window>
