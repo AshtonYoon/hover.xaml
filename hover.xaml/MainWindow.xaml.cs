@@ -38,6 +38,7 @@ namespace hover.xaml
             PulseXAnimation.RepeatBehavior = RepeatBehavior.Forever;
             PulseYAnimation.RepeatBehavior = RepeatBehavior.Forever;
             PulseButton.BeginStoryboard(PulseStoryBoard);
+            //mouseleave할 때 애니메이션 해제
         }
     }
 }
