@@ -444,5 +444,42 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
+        <Button VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="50" Margin="10 70 10 10" Content="Float" RenderTransformOrigin="0.5 0.5">
+            <Button.Style>
+                <Style TargetType="{x:Type Button}">
+                    <Setter Property="BorderThickness" Value="0"/>
+                    <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Button}">
+                                <Border Background="{TemplateBinding Background}">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Button.Style>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="Button.MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                <SplineThicknessKeyFrame KeyTime="00:00:00.2" Value="10, 62, 10, 10" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="Button.MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="00:00:00">
+                                <SplineThicknessKeyFrame KeyTime="00:00:00.2" Value="10, 70, 10, 10" />
+                            </ThicknessAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
+        </Button>
     </Grid>
 </Window>
